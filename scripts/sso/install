@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+SOURCES_DIR=/tmp/artifacts
+
+unzip $SOURCES_DIR/keycloak-server-overlay-1.9.8.Final-redhat-1.zip -d $SOURCES_DIR
+
+cp -rf ${SOURCES_DIR}/modules/* $JBOSS_HOME/modules/
+cp -rf ${SOURCES_DIR}/bin/* $JBOSS_HOME/bin/
+cp -rf ${SOURCES_DIR}/standalone/* $JBOSS_HOME/standalone/
+mv ${SOURCES_DIR}/themes $JBOSS_HOME
+
+pushd /opt/eap
+./bin/jboss-cli.sh --file=bin/keycloak-install.cli
+popd
+
+chown -R jboss:root $JBOSS_HOME
+chmod 0755 $JBOSS_HOME
+chmod -R g+rwX $JBOSS_HOME

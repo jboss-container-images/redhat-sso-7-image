@@ -1,0 +1,26 @@
+name: "redhat-sso-7/sso70"
+version: "7.0.0"
+from: "jboss-eap-7/eap70:latest"
+user: 185
+envs:
+    information:
+        - name: "JBOSS_PRODUCT"
+          value: "sso"
+        - name: "JBOSS_SSO_VERSION"
+          value: "7.0.0"
+        - name: "PRODUCT_VERSION"
+          value: "7.0.0"
+cmd:
+    - "/opt/eap/bin/standalone.sh"
+    - "-b"
+    - "0.0.0.0"
+    - "-c"
+    - "standalone.xml"
+scripts:
+    - package: sso
+      exec: install
+sources:
+    - url: keycloak-server-overlay-1.9.8.Final-redhat-1.zip
+      md5: a267505ee07a9b16e369fabc79d00ed2
+dogen:
+    version: 2.0.0rc15
