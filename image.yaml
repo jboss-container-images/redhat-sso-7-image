@@ -24,4 +24,4 @@ sources:
       md5: c132e2d998c6063e00dc8763f017d609
       target: keycloak-server-overlay.zip
 dogen:
-    version: 2.0.0rc15
+    version: 2.0.0rc16
