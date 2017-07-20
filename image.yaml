@@ -28,4 +28,5 @@ dogen:
     plugins:
         dist_git:
             repo: redhat-sso-7-docker
-            branch: jb-sso70
+            branch: jb-sso71
+
