@@ -23,7 +23,7 @@ sources:
     - artifact: keycloak-server-overlay-1.9.8.Final-redhat-1.zip
       md5: a267505ee07a9b16e369fabc79d00ed2
 dogen:
-    version: 2.1.0
+    version: 2.4.0
     plugins:
         dist_git:
             repo: redhat-sso-7-docker
