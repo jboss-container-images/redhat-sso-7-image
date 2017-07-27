@@ -24,7 +24,7 @@ sources:
       md5: f97b6f7ac2f5acdad3c5644d8698a1eb
       target: keycloak-server-overlay.zip
 dogen:
-    version: 2.3.0
+    version: 2.4.0
     plugins:
         dist_git:
             repo: redhat-sso-7-docker
