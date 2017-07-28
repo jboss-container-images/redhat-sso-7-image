@@ -1,3 +1,4 @@
+@redhat-sso-7/sso70
 Feature: Standalone SSO tests
 
   Scenario: Test console is available
