@@ -20,8 +20,8 @@ scripts:
     - package: sso
       exec: install
 sources:
-    - artifact: keycloak-server-overlay-2.5.9.Final-redhat-1.zip
-      md5: 16bc2a2dc74ee132caa6cb2780ba0c93
+    - artifact: keycloak-server-overlay-2.5.10.Final-redhat-1.zip
+      md5: 7683d9270bb61f8e7f95a0220b1bd3a4
       target: keycloak-server-overlay.zip
 dogen:
     version: 2.4.1
