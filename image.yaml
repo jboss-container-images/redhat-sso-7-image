@@ -29,4 +29,3 @@ dogen:
         dist_git:
             repo: redhat-sso-7-docker
             branch: jb-sso71
-
