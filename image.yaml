@@ -1,8 +1,9 @@
+schema_version: 1
+
 name: "redhat-sso-7/sso71"
 description: "Red Hat Single Sign-On 7.1 container image"
 version: "7.1.2"
 from: "jboss-eap-7/eap70:latest"
-user: 185
 envs:
     - name: "JBOSS_PRODUCT"
       value: "sso"
@@ -10,22 +11,22 @@ envs:
       value: "7.1.2"
     - name: "PRODUCT_VERSION"
       value: "7.1.2"
-cmd:
-    - "/opt/eap/bin/standalone.sh"
-    - "-b"
-    - "0.0.0.0"
-    - "-c"
-    - "standalone.xml"
-scripts:
-    - package: sso
-      exec: install
-sources:
-    - artifact: keycloak-server-overlay-2.5.10.Final-redhat-1.zip
+modules:
+      install:
+          - name: sso
+artifacts:
+    - path: keycloak-server-overlay-2.5.10.Final-redhat-1.zip
       md5: 7683d9270bb61f8e7f95a0220b1bd3a4
       target: keycloak-server-overlay.zip
-dogen:
-    version: 2.4.3
-    plugins:
-        dist_git:
-            repo: redhat-sso-7-docker
+run:
+      user: 185
+      cmd:
+          - "/opt/eap/bin/standalone.sh"
+          - "-b"
+          - "0.0.0.0"
+          - "-c"
+          - "standalone.xml"
+osbs:
+      repository:
+            name: redhat-sso-7-docker
             branch: jb-sso71
