@@ -19,6 +19,8 @@ envs:
     - name: "PRODUCT_VERSION"
       value: "7.2.0"
 modules:
+      repositories:
+          - path: modules
       install:
           - name: sso
 artifacts:
