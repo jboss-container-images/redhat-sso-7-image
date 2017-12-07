@@ -10,7 +10,9 @@ pushd $JBOSS_HOME/bin
 ./jboss-cli.sh --file=keycloak-install.cli
 popd
 
+# Clean up the left-over content of the history directory
+rm -rf "$JBOSS_HOME/standalone/configuration/standalone_xml_history/current"
+
 chown -R jboss:root $JBOSS_HOME
 chmod 0755 $JBOSS_HOME
 chmod -R g+rwX $JBOSS_HOME
-
