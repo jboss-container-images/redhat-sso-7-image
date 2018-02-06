@@ -24,8 +24,8 @@ modules:
       install:
           - name: sso
 artifacts:
-      # keycloak-server-overlay-2.5.14.Final-redhat-1.zip
-    - path: keycloak-server-overlay.zip
+    - name: keycloak-server-overlay.zip
+      path: keycloak-server-overlay-2.5.14.Final-redhat-1.zip
       md5: 2f73f14dad19983332061fab51314d92
 run:
       user: 185
@@ -38,4 +38,4 @@ run:
 osbs:
       repository:
             name: redhat-sso-7-docker
-            branch: jb-sso71
+            branch: jb-sso-7.1-rhel-7
