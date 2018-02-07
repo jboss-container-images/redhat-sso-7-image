@@ -38,4 +38,4 @@ run:
 osbs:
       repository:
             name: redhat-sso-7-docker
-            branch: jb-sso72
+            branch: jb-sso-7.2-rhel-7
