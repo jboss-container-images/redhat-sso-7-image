@@ -24,9 +24,9 @@ modules:
       install:
           - name: sso
 artifacts:
-      # keycloak-server-overlay-3.4.1.CR1-redhat-1.zip
+      # keycloak-server-overlay-3.4.3.Final-redhat-2.zip
     - path: keycloak-server-overlay.zip
-      md5: 56cec26646909403b25db3bc0b1f335b
+      md5: 0a14c3ee7be9e20c25c31b082a2c2c49
 run:
       user: 185
       cmd:
