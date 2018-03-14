@@ -3,7 +3,7 @@ schema_version: 1
 name: "redhat-sso-7/sso72"
 description: "Red Hat Single Sign-On 7.2 container image"
 version: "7.2.0"
-from: "jboss-eap-7/eap71:7.1.0-9"
+from: "jboss-eap-7/eap71:latest"
 labels:
     - name: "com.redhat.component"
       value: "redhat-sso-7-sso72-container"
