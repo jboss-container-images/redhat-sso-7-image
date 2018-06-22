@@ -1,25 +1,25 @@
 schema_version: 1
 
-name: "redhat-sso-7/sso73"
-description: "Red Hat Single Sign-On 7.3 container image"
-version: "7.3-CD1"
+name: "redhat-sso-7-tech-preview/sso-cd"
+description: "Red Hat Single Sign-On 7.3 continuous delivery container image"
+version: "7.3-CD2"
 from: "jboss-eap-7/eap71:latest"
 labels:
     - name: "com.redhat.component"
-      value: "redhat-sso-7-sso73-container"
+      value: "redhat-sso-7-sso-cd-container"
     - name: "org.jboss.product"
       value: "sso"
     - name: "org.jboss.product.version"
-      value: "7.3-CD1"
+      value: "7.3-CD2"
     - name: "org.jboss.product.sso.version"
-      value: "7.3-CD1"
+      value: "7.3-CD2"
 envs:
     - name: "JBOSS_PRODUCT"
       value: "sso"
     - name: "JBOSS_SSO_VERSION"
-      value: "7.3-CD1"
+      value: "7.3-CD2"
     - name: "PRODUCT_VERSION"
-      value: "7.3-CD1"
+      value: "7.3-CD2"
 modules:
       repositories:
           - path: modules
@@ -40,4 +40,4 @@ run:
 osbs:
       repository:
             name: containers/redhat-sso-7
-            branch: jb-sso-7.3-rhel-7
+            branch: jb-sso-cd-rhel-7
