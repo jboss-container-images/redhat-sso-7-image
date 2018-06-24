@@ -1,0 +1,83 @@
+#!/bin/sh
+# Add Red Hat Single Sign-On client adapters
+set -e
+
+# Helper routine to autogenerate "install.sh"
+# script for RH-SSO OIDC and SAML adapters
+function generate_install_sh_oidc_saml_adapters() {
+
+  for ADAPTER_PATH in "${SSO_ADAPTER_ZIP_TO_DIR[@]}"; do
+    if [[ "${ADAPTER_PATH}" =~ 'eap' ]]; then
+
+      local INSTALL_SH_TEMPLATE=$(cat <<- EOIS_DEF
+#!/bin/sh
+set -e
+
+SCRIPT_DIR=\$(dirname \$0)
+# Remove the default version of the RH-SSO adapters
+rm -rf /opt/eap/modules/system/add-ons/keycloak
+
+<EXPAND_ADAPTER_ZIPS>
+
+chown -R jboss:root \$(JBOSS_HOME}
+chmod -R g+rwX \${JBOSS_HOME}
+EOIS_DEF
+)
+
+      IFS=$'\,' read -a ADAPTER_ZIPS <<< "${INSTALL_SH_ZIP_LIST[$ADAPTER_PATH]}"
+      for ADAPTER_ZIP in "${ADAPTER_ZIPS[@]}"; do
+        local ZIP_EXPAND_CMD+=$(echo -e "\nunzip -o \${SCRIPT_DIR}/${ADAPTER_ZIP} -d \${JBOSS_HOME}")
+      done
+      INSTALL_SH_TEMPLATE="${INSTALL_SH_TEMPLATE//<EXPAND_ADAPTER_ZIPS>/${ZIP_EXPAND_CMD}}"
+      # Generate the "install.sh" script for specific adapter location
+      echo "${INSTALL_SH_TEMPLATE}" > "${ADAPTER_PATH}/install.sh"
+      chmod ug+x "${ADAPTER_PATH}/install.sh"
+      ZIP_EXPAND_CMD=''
+    fi
+  done
+}
+
+#
+# Main shell script body
+#
+SCRIPT_DIR=$(dirname $0)
+ADDED_DIR=${SCRIPT_DIR}/added
+SOURCES_DIR="/tmp/artifacts"
+
+# Fixed base directory prefix for RH-SSO client adapters.
+# !!! DO NOT CHANGE !!! Since this is exported to other images.
+declare -r SSO_ADAPTERS_BASE_DIR="/opt/rh/rh-sso/client"
+
+# RH-SSO adapter Zip archive name to expected adapter location mapping
+# Key:     Zip archive name of the specific RH-SSO client adapter
+# Value:   Fixed directory location of the specific RH-SSO client adapter
+#          in the RH-SSO image.
+#
+# Feel free to:
+# * Define additional RH-SSO adapters below as needed, or
+# * Change the Zip archive name (key) for the specific adapter
+#
+# !!! BUT DO NOT CHANGE EXISTING final adapter locations (hash values)
+# since these are already exported to and used by other images !!!
+declare -rA SSO_ADAPTER_ZIP_TO_DIR=( ["keycloak-eap6-adapter-dist-4.0.0.Final-redhat-1.zip"]="${SSO_ADAPTERS_BASE_DIR}/eap6" \
+                                     ["keycloak-saml-eap6-adapter-dist-4.0.0.Final-redhat-1.zip"]="${SSO_ADAPTERS_BASE_DIR}/eap6" \
+                                     ["keycloak-wildfly-adapter-dist-4.0.0.Final-redhat-1.zip"]="${SSO_ADAPTERS_BASE_DIR}/eap7" \
+                                     ["keycloak-saml-wildfly-adapter-dist-4.0.0.Final-redhat-1.zip"]="${SSO_ADAPTERS_BASE_DIR}/eap7" \
+                                     ["keycloak-js-adapter-dist-4.0.0.Final-redhat-1.zip"]="${SSO_ADAPTERS_BASE_DIR}/js" \
+                                   )
+
+# Generated list of Zip archives to expand in "install.sh" script,
+# specific to one final adapsters directory location
+declare -A INSTALL_SH_ZIP_LIST=()
+
+# Copy adapter Zip archives to expected locations
+for ADAPTER_ZIP in "${!SSO_ADAPTER_ZIP_TO_DIR[@]}"; do
+  if [ ! -d "${SSO_ADAPTER_ZIP_TO_DIR[$ADAPTER_ZIP]}" ]; then
+    mkdir -p "${SSO_ADAPTER_ZIP_TO_DIR[$ADAPTER_ZIP]}"
+  fi
+  cp -p "${SOURCES_DIR}/${ADAPTER_ZIP}" "${SSO_ADAPTER_ZIP_TO_DIR[$ADAPTER_ZIP]}"
+  INSTALL_SH_ZIP_LIST[${SSO_ADAPTER_ZIP_TO_DIR[$ADAPTER_ZIP]}]+="$ADAPTER_ZIP,"
+done
+
+# Generate "install.sh" script for these locations
+generate_install_sh_oidc_saml_adapters

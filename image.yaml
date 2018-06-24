@@ -25,6 +25,7 @@ modules:
           - path: modules
       install:
           - name: sso
+          - name: sso-adapters
 artifacts:
       # keycloak-server-overlay-4.0.0.Beta3-redhat-2.zip
     - path: keycloak-server-overlay.zip

@@ -1,0 +1,23 @@
+schema_version: 1
+name: sso-adapters
+version: '1.0'
+description: Package to add Red Hat Single Sign-On client adapters for JBoss EAP.
+execute:
+- script: install
+
+artifacts:
+- path: keycloak-eap6-adapter-dist-4.0.0.Final-redhat-1.zip
+  description: "RH-SSO OpenID Connect client adapter for JBoss EAP 6."
+  md5: 4afac5d8aae8262f6e09a3edab354842
+- path: keycloak-saml-eap6-adapter-dist-4.0.0.Final-redhat-1.zip
+  description: "RH-SSO SAML client adapter for JBoss EAP 6."
+  md5: 9a87eae0d0256a88aab0b83665ec24b3
+- path: keycloak-wildfly-adapter-dist-4.0.0.Final-redhat-1.zip
+  description: "RH-SSO OpenID Connect client adapter for JBoss EAP 7."
+  md5: 6be35f335246352e3d8c8ff5aac957b9
+- path: keycloak-saml-wildfly-adapter-dist-4.0.0.Final-redhat-1.zip
+  description: "RH-SSO SAML client adapter for JBoss EAP 7."
+  md5: 893c95c19135a9fa5c53be423505e805
+- path: keycloak-js-adapter-dist-4.0.0.Final-redhat-1.zip
+  description: "RH-SSO JavaScript client adapter."
+  md5: e94716e70fe888fd14e1e47654607a5e
