@@ -1,7 +1,7 @@
 schema_version: 1
-name: sso-adapters
+name: keycloak.openshift.clients
 version: '1.0'
-description: Package to add Red Hat Single Sign-On client adapters for JBoss EAP.
+description: Package to add Red Hat Single Sign-On / Keycloak client adapters for JBoss EAP.
 execute:
 - script: install
 
