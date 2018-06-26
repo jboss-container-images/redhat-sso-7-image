@@ -6,18 +6,24 @@ execute:
 - script: install
 
 artifacts:
-- path: keycloak-eap6-adapter-dist-4.0.0.Final-redhat-1.zip
-  description: "RH-SSO OpenID Connect client adapter for JBoss EAP 6."
-  md5: 4afac5d8aae8262f6e09a3edab354842
-- path: keycloak-saml-eap6-adapter-dist-4.0.0.Final-redhat-1.zip
-  description: "RH-SSO SAML client adapter for JBoss EAP 6."
-  md5: 9a87eae0d0256a88aab0b83665ec24b3
-- path: keycloak-wildfly-adapter-dist-4.0.0.Final-redhat-1.zip
-  description: "RH-SSO OpenID Connect client adapter for JBoss EAP 7."
-  md5: 6be35f335246352e3d8c8ff5aac957b9
-- path: keycloak-saml-wildfly-adapter-dist-4.0.0.Final-redhat-1.zip
-  description: "RH-SSO SAML client adapter for JBoss EAP 7."
-  md5: 893c95c19135a9fa5c53be423505e805
-- path: keycloak-js-adapter-dist-4.0.0.Final-redhat-1.zip
-  description: "RH-SSO JavaScript client adapter."
-  md5: e94716e70fe888fd14e1e47654607a5e
+- sha256: 40d58aa40fecaef290dab60dc719a4511241187dde8b7d06575dcc59a359a841
+  name: "keycloak-eap6-adapter.zip"
+  path: "standalone/keycloak-eap6-adapter.zip"
+- sha256: 6276f6b7bbb0e248f0f0394e2d34522dfaf20b223f78cbf5cfeeeac2b501248a
+  name: "keycloak-server-overlay.zip"
+  path: "standalone/keycloak-server-overlay.zip"
+- sha256: 609a9391e546280c0deb78a020288750ade88afb792880e2105a9fd396158a32
+  name: "keycloak-fuse-adapter.zip"
+  path: "standalone/keycloak-fuse-adapter.zip"
+- sha256: e95c55fbc3553a92516e76f8ffc38e2074f7000512093e640c7ad8019c331330
+  name: "keycloak-saml-eap6-adapter.zip"
+  path: "standalone/keycloak-saml-eap6-adapter.zip"
+- sha256: 125b2941ac606689a0b4f41f0ff4dd873b0775d724110e453d2eb23c70edca60
+  name: "keycloak-saml-eap7-adapter.zip"
+  path: "standalone/keycloak-saml-eap7-adapter.zip"
+- sha256: 960dd613ab5404bfeeb3679fb1cdbff6a1fb32004a261c80b14f0d9f0b433280
+  name: "keycloak-eap7-adapter.zip"
+  path: "standalone/keycloak-eap7-adapter.zip"
+- sha256: 5bc9800cd31aa3b84c6a7cbfe7b3e1319d1dd641b52caf80427809f5da4a132c
+  name: "keycloak-js-adapter.zip"
+  path: "standalone/keycloak-js-adapter.zip"
