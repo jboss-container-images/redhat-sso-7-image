@@ -5,6 +5,6 @@ description: Package to add Red Hat Single Sign-On / Keycloak client adapters fo
 execute:
 - script: install
 
-artifacts:
+#artifacts:
   # Set by the pipeline, consists of the adapter zips, renamed to
   # keycloak-*-adapter.zip
