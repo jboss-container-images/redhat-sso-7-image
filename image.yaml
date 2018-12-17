@@ -2,24 +2,24 @@ schema_version: 1
 
 name: "redhat-sso-7/sso73"
 description: "Red Hat Single Sign-On 7.3 container image"
-version: "7.3.0.ER1"
-from: "jboss-eap-7/eap72:latest"
+version: "7.3.0.ER2"
+from: "jboss-eap-7/eap72:7.2.0-5"
 labels:
     - name: "com.redhat.component"
       value: "redhat-sso-7-sso73-container"
     - name: "org.jboss.product"
       value: "sso"
     - name: "org.jboss.product.version"
-      value: "7.3.0.ER1"
+      value: "7.3.0.ER2"
     - name: "org.jboss.product.sso.version"
-      value: "7.3.0.ER1"
+      value: "7.3.0.ER2"
 envs:
     - name: "JBOSS_PRODUCT"
       value: "sso"
     - name: "JBOSS_SSO_VERSION"
-      value: "7.3.0.ER1"
+      value: "7.3.0.ER2"
     - name: "PRODUCT_VERSION"
-      value: "7.3.0.ER1"
+      value: "7.3.0.ER2"
 modules:
       repositories:
           - path: modules
