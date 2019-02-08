@@ -2,33 +2,33 @@ schema_version: 1
 
 name: "redhat-sso-7/sso72"
 description: "Red Hat Single Sign-On 7.2 container image"
-version: "7.2.4"
-from: "jboss-eap-7/eap71:latest"
+version: "7.2.6"
+from: "jboss-eap-7/eap71:7.1.6-2"
 labels:
     - name: "com.redhat.component"
       value: "redhat-sso-7-sso72-container"
     - name: "org.jboss.product"
       value: "sso"
     - name: "org.jboss.product.version"
-      value: "7.2.4.GA"
+      value: "7.2.6.GA"
     - name: "org.jboss.product.sso.version"
-      value: "7.2.4.GA"
+      value: "7.2.6.GA"
 envs:
     - name: "JBOSS_PRODUCT"
       value: "sso"
     - name: "JBOSS_SSO_VERSION"
-      value: "7.2.4.GA"
+      value: "7.2.6.GA"
     - name: "PRODUCT_VERSION"
-      value: "7.2.4.GA"
+      value: "7.2.6.GA"
 modules:
       repositories:
           - path: modules
       install:
           - name: sso
 artifacts:
-      # keycloak-server-overlay-3.4.12.Final-redhat-2.zip
-    - path: keycloak-server-overlay.zip
-      md5: 06c3cbc85867ea42569de203035547ca
+    - target: keycloak-server-overlay.zip
+      name: keycloak-server-overlay-3.4.15.Final-redhat-00001.zip
+      md5: 57102bb07c21012f4c0fbbb75b4ce144
 run:
       user: 185
       cmd:

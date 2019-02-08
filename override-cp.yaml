@@ -1,0 +1,4 @@
+osbs:
+      repository:
+            name: containers/redhat-sso-7
+            branch: jb-sso-7.2-cp-rhel-7
