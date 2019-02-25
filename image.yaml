@@ -3,7 +3,7 @@ schema_version: 1
 name: "redhat-sso-7-tech-preview/sso-cd"
 description: "Red Hat Single Sign-On 7.3 continuous delivery container image"
 version: "7.3.0.CD04"
-from: "jboss-eap-7/eap-cd:14.0-10"
+from: "jboss-eap-7/eap-cd:14.0-12"
 labels:
     - name: "com.redhat.component"
       value: "redhat-sso-7-sso-cd-container"
