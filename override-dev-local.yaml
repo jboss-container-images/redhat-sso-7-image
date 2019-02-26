@@ -1,0 +1,26 @@
+osbs:
+      repository:
+            name: containers/redhat-sso-7
+            branch: jb-sso-cd-dev-rhel-7
+artifacts:
+      - sha256: c5852dec4ae1a3770356cf5885c6629bba6f6014533513813c8ab6be04d0026f
+        name: "keycloak-eap6-adapter.zip"
+        path: "standalone/keycloak-eap6-adapter.zip"
+      - sha256: 4a63cc128c9ff5c13f4fe75a473d9d65936e96f851ea4fcb268e48d929db7a5e
+        name: "keycloak-server-overlay.zip"
+        path: "standalone/keycloak-server-overlay.zip"
+      - sha256: ef1d8b537c0c64e5c834c4e938d0e2ebcb985790a964c9333850f73c4d35c38b
+        name: "keycloak-fuse-adapter.zip"
+        path: "standalone/keycloak-fuse-adapter.zip"
+      - sha256: 50bf908cbc0bb649e8e75e9e4ce0dcbf24a934653cfd1f4c7cec237781dc2146
+        name: "keycloak-saml-eap6-adapter.zip"
+        path: "standalone/keycloak-saml-eap6-adapter.zip"
+      - sha256: 26384f6dab927632c4e8bf3fc85b1e12f8f481783855be972e366ac857955710
+        name: "keycloak-saml-eap7-adapter.zip"
+        path: "standalone/keycloak-saml-eap7-adapter.zip"
+      - sha256: 9fc44f0b9b4bdac531d90e465eb2a714e195f61d71078d9cc3dcc51eefebd907
+        name: "keycloak-eap7-adapter.zip"
+        path: "standalone/keycloak-eap7-adapter.zip"
+      - sha256: 821f2f54cc100374709bff682b22702b686b19cc29c4ac856fd6a18f924fb254
+        name: "keycloak-js-adapter.zip"
+        path: "standalone/keycloak-js-adapter.zip"
