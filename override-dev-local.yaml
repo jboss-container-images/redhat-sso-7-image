@@ -3,6 +3,8 @@ osbs:
             name: containers/redhat-sso-7
             branch: jb-sso-cd-dev-rhel-7
 artifacts:
+      - sha256: d8f7733cad3f8cc0daa14bfd70b1c6e1b116744baef67fd71bb02249e590f8f2
+        path: "jboss-eap-cd.zip"
       - sha256: c5852dec4ae1a3770356cf5885c6629bba6f6014533513813c8ab6be04d0026f
         name: "keycloak-eap6-adapter.zip"
         path: "standalone/keycloak-eap6-adapter.zip"

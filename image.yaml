@@ -3,7 +3,7 @@ schema_version: 1
 name: "redhat-sso-7-tech-preview/sso-cd"
 description: "Red Hat Single Sign-On 7.4 continuous delivery container image"
 version: "7.4.0.CD05"
-from: "jboss-eap-7/eap-cd:15.0-1"
+from: "rhel7:7-released"
 labels:
     - name: "com.redhat.component"
       value: "redhat-sso-7-sso-cd-container"
@@ -20,10 +20,24 @@ envs:
       value: "7.4.0.CD05"
     - name: "PRODUCT_VERSION"
       value: "7.4.0.CD05"
+packages:
+    repositories:
+        - jboss-os
 modules:
       repositories:
           - path: modules
+          - name: cct_module
+            git:
+                url: https://github.com/jboss-openshift/cct_module.git
+                ref: master
+          - name: jboss-eap-7-image
+            git:
+                url: https://github.com/jboss-container-images/jboss-eap-7-image.git
+                ref: CD15
       install:
+          - name: jboss.container.openjdk.jdk
+            version: "8"
+          - name: eap-cd-latest
           - name: sso
           - name: keycloak.openshift.clients
 artifacts:
