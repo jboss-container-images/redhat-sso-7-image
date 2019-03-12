@@ -1,8 +1,8 @@
 schema_version: 1
 
 name: "redhat-sso-7-tech-preview/sso-cd"
-description: "Red Hat Single Sign-On 7.3 continuous delivery container image"
-version: "7.3.0.CD04"
+description: "Red Hat Single Sign-On 7.4 continuous delivery container image"
+version: "7.4.0.CD05"
 from: "jboss-eap-7/eap-cd:15.0-1"
 labels:
     - name: "com.redhat.component"
@@ -10,16 +10,16 @@ labels:
     - name: "org.jboss.product"
       value: "sso"
     - name: "org.jboss.product.version"
-      value: "7.3.0.CD04"
+      value: "7.4.0.CD05"
     - name: "org.jboss.product.sso.version"
-      value: "7.3.0.CD04"
+      value: "7.4.0.CD05"
 envs:
     - name: "JBOSS_PRODUCT"
       value: "sso"
     - name: "JBOSS_SSO_VERSION"
-      value: "7.3.0.CD04"
+      value: "7.4.0.CD05"
     - name: "PRODUCT_VERSION"
-      value: "7.3.0.CD04"
+      value: "7.4.0.CD05"
 modules:
       repositories:
           - path: modules
