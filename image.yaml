@@ -33,7 +33,7 @@ modules:
           - name: jboss-eap-7-image
             git:
                 url: https://github.com/jboss-container-images/jboss-eap-7-image.git
-                ref: CD15
+                ref: CD16-CR1
       install:
           - name: jboss.container.openjdk.jdk
             version: "8"
