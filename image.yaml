@@ -1,6 +1,6 @@
 schema_version: 1
 
-name: "redhat-sso-7-tech-preview/sso-cd"
+name: "redhat-sso-cd-tech-preview/sso-cd"
 description: "Red Hat Single Sign-On Continuous Delivery container image"
 version: "6"
 from: "rhel7:7-released"
