@@ -1,6 +1,9 @@
 # Red Hat Single Sign-On container image
 
-NOTE: Extends link:https://github.com/jboss-container-images/jboss-eap-7-image[JBoss EAP 7 image]
+Extends link:https://access.redhat.com/containers/?tab=overview#/registry.access.redhat.com/ubi8/ubi-minimal[Red Hat Universal Base Image 8 Minimal] by utilizing:
+
+* link:https://cekit.io/[CEKit] modules link:https://github.com/jboss-openshift/cct_module[shared by OpenShift container images]
+* link:https://github.com/jboss-container-images/jboss-eap-modules[JBoss EAP] modules.
 
 # License
 

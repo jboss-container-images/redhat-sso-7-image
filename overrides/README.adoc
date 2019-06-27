@@ -1,0 +1,49 @@
+# Various link:https://cekit.io/[CEKit] Overrides modules for the Red Hat Single Sign-On container image
+
+link:https://cekit.io/[CEKit] provides link:https://docs.cekit.io/en/latest/handbook/overrides.html[Overrides] feature to customize image builds (e.g. use different base image, include different version of specific libraries etc.). It's even possible to link:https://docs.cekit.io/en/latest/handbook/overrides.html#overrides-chaining[chain multiple overrides] to combine the requests together. See the following examples for guidance on how to customize the build of the Red Hat Single Sign-On container image to achieve this:
+
+* Modify the build of Red Hat Single Sign-On container image to deploy OpenJDK JDK 8 (OpenJDK JDK 11 is used by default):
++
+** To build using CEKit 2.x use command:
++
+[source,bash,subs="attributes+,macros+"]
+----
+cekit build \
+--descriptor backward-compatibility/cekit-2.x-image-descriptor.yaml \
+--overrides-file overrides/jdk8-overrides.yaml \
+--build-engine=docker
+----
++
+NOTE: When building with CEKit 2.x, the link:https://access.redhat.com/containers/?tab=overview#/registry.access.redhat.com/rhel7[Red Hat Enterprise Linux 7] image is used as the base image for the output Red Hat Single Sign-On container image and the link:http://yum.baseurl.org/[Yum package manager] is used to install the required RPM packages.
++
+** To build using CEKit 3.x use command:
++
+[source,bash,subs="attributes+,macros+"]
+----
+cekit build \
+--overrides-file overrides/jdk8-overrides.yaml \
+docker
+----
++
+NOTE: When building with CEKit 3.x, the link:https://access.redhat.com/containers/?tab=overview#/registry.access.redhat.com/ubi8/ubi-minimal[Red Hat Universal Base Image 8 Minimal] image (the default one) is used as the base image for the output Red Hat Single Sign-On container image and the link:https://github.com/rpm-software-management/microdnf[microdnf] lightweight implementation of dnf is used to install the required RPM packages.
+
+* Modify the build of Red Hat Single Sign-On container image to use custom Keycloak artifacts, downloaded in advance and stored locally for the build:
++
+** To build using CEKit 2.x use command:
++
+[source,bash,subs="attributes+,macros+"]
+----
+cekit build \
+--descriptor backward-compatibility/cekit-2.x-image-descriptor.yaml \
+--overrides-file overrides/local-keycloak-zips-overrides.yaml \
+--build-engine=docker
+----
++
+** To build using CEKit 3.x use command:
++
+[source,bash,subs="attributes+,macros+"]
+----
+cekit build \
+--overrides-file overrides/local-keycloak-zips-overrides.yaml \
+docker
+----
