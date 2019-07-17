@@ -2,7 +2,7 @@ schema_version: 1
 
 name: "redhat-sso-cd-tech-preview/sso-cd-rhel8"
 description: "Red Hat Single Sign-On Continuous Delivery container image, based on the Red Hat Universal Base Image 8 Minimal container image"
-version: "6"
+version: "7"
 # Strictly stick to 'ubi8-minimal:8.0-131' rather than using 'ubi8-minimal:latest'
 # till RH BZ#1725863 is addressed
 from: "ubi8-minimal:8.0-131"
@@ -12,16 +12,16 @@ labels:
     - name: "org.jboss.product"
       value: "sso"
     - name: "org.jboss.product.version"
-      value: "6"
+      value: "7"
     - name: "org.jboss.product.sso.version"
-      value: "6"
+      value: "7"
 envs:
     - name: "JBOSS_PRODUCT"
       value: "sso"
     - name: "JBOSS_SSO_VERSION"
-      value: "6"
+      value: "7"
     - name: "PRODUCT_VERSION"
-      value: "6"
+      value: "7"
 packages:
       manager: microdnf
       content_sets:
@@ -33,11 +33,11 @@ modules:
           - name: cct_module
             git:
                 url: https://github.com/jboss-openshift/cct_module.git
-                ref: sprint-35
+                ref: 0.35.1
           - name: jboss-eap-7-image
             git:
                 url: https://github.com/jboss-container-images/jboss-eap-7-image.git
-                ref: CD16
+                ref: CD17_CR2
       install:
           - name: jboss.container.openjdk.jdk
             version: '11'
