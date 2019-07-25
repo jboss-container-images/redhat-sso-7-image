@@ -1,14 +1,14 @@
 schema_version: 1
 
-name: "redhat-sso-cd-tech-preview/sso-cd"
-description: "Red Hat Single Sign-On Continuous Delivery container image"
+name: "redhat-sso-cd-tech-preview/sso-cd-rhel8"
+description: "Red Hat Single Sign-On Continuous Delivery container image, based on the Red Hat Universal Base Image 8 Minimal container image"
 version: "6"
 # Strictly stick to 'ubi8-minimal:8.0-131' rather than using 'ubi8-minimal:latest'
 # till RH BZ#1725863 is addressed
 from: "ubi8-minimal:8.0-131"
 labels:
     - name: "com.redhat.component"
-      value: "redhat-sso-7-sso-cd-container"
+      value: "redhat-sso-cd-rhel8-container"
     - name: "org.jboss.product"
       value: "sso"
     - name: "org.jboss.product.version"
@@ -58,4 +58,4 @@ run:
 osbs:
       repository:
             name: containers/redhat-sso-7
-            branch: jb-sso-cd-rhel-7
+            branch: jb-sso-cd-rhel8
