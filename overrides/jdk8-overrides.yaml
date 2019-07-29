@@ -1,0 +1,6 @@
+# CEKit Overrides module to deploy OpenJDK JDK 8 into the Red Hat Single Sign-On container image
+# See README.adoc and https://docs.cekit.io/en/latest/handbook/overrides.html for details
+modules:
+      install:
+          - name: jboss.container.openjdk.jdk
+            version: "8"

@@ -1,7 +1,6 @@
-osbs:
-      repository:
-            name: containers/redhat-sso-7
-            branch: jb-sso-cd-dev-rhel-7
+# CEKit Overrides module to build the Red Hat Single Sign-On container image
+# utilizing specific Keycloak artifacts, stored locally and downloaded in advance
+# See README.adoc and https://docs.cekit.io/en/latest/handbook/overrides.html for details
 artifacts:
       - md5: c6c5690dd226280b612eed960d66a2f9
         path: "jboss-eap-cd.zip"

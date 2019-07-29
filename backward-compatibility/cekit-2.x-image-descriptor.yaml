@@ -1,14 +1,12 @@
 schema_version: 1
 
-name: "redhat-sso-cd-tech-preview/sso-cd-rhel8"
-description: "Red Hat Single Sign-On Continuous Delivery container image, based on the Red Hat Universal Base Image 8 Minimal container image"
+name: "redhat-sso-cd-tech-preview/sso-cd"
+description: "Red Hat Single Sign-On Continuous Delivery container image"
 version: "6"
-# Strictly stick to 'ubi8-minimal:8.0-131' rather than using 'ubi8-minimal:latest'
-# till RH BZ#1725863 is addressed
-from: "ubi8-minimal:8.0-131"
+from: "rhel7:7-released"
 labels:
     - name: "com.redhat.component"
-      value: "redhat-sso-cd-rhel8-container"
+      value: "redhat-sso-7-sso-cd-container"
     - name: "org.jboss.product"
       value: "sso"
     - name: "org.jboss.product.version"
@@ -23,30 +21,29 @@ envs:
     - name: "PRODUCT_VERSION"
       value: "6"
 packages:
-      manager: microdnf
-      content_sets:
-            x86_64:
-                - rhel-8-for-x86_64-baseos-rpms
+    repositories:
+        - jboss-os
 modules:
       repositories:
-          - path: modules
+          - path: ../modules
           - name: cct_module
             git:
                 url: https://github.com/jboss-openshift/cct_module.git
-                ref: sprint-35
+                ref: sprint-31
           - name: jboss-eap-7-image
             git:
                 url: https://github.com/jboss-container-images/jboss-eap-7-image.git
-                ref: CD16
+                ref: CD16-CR1
       install:
           - name: jboss.container.openjdk.jdk
-            version: '11'
+            version: "8"
           - name: eap-cd-latest
           - name: sso
           - name: keycloak.openshift.clients
-# artifacts:
-      # Set by the pipeline. Consists of the server overlay zip, renamed to "keycloak-server-overlay.zip"
-      # Use overrides/local-keycloak-zips-overrides.yaml to build the image using specific artifacts, stored locally
+artifacts:
+      # keycloak-server-overlay-4.0.0.Beta3-redhat-2.zip
+    - path: keycloak-server-overlay.zip
+      md5: 5dde7dcb52e76bb1373cbaa020328d4c
 run:
       user: 185
       cmd:
@@ -58,4 +55,4 @@ run:
 osbs:
       repository:
             name: containers/redhat-sso-7
-            branch: jb-sso-cd-rhel8
+            branch: jb-sso-cd-rhel-7
