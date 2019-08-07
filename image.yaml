@@ -20,6 +20,10 @@ envs:
       value: "7.3.3.GA"
     - name: "PRODUCT_VERSION"
       value: "7.3.3.GA"
+packages:
+      content_sets:
+            x86_64:
+                - rhel-7-server-rpms
 modules:
       repositories:
           - path: modules
