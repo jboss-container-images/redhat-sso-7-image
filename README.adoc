@@ -1,4 +1,4 @@
-# Red Hat Single Sign-On 7.2 container image
+# Red Hat Single Sign-On 7.3 container image
 
 NOTE: Extends link:https://github.com/jboss-container-images/jboss-eap-7-image[JBoss EAP 7 image]
 
