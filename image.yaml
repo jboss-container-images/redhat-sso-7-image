@@ -3,9 +3,7 @@ schema_version: 1
 name: "redhat-sso-cd-tech-preview/sso-cd-rhel8"
 description: "Red Hat Single Sign-On Continuous Delivery container image, based on the Red Hat Universal Base Image 8 Minimal container image"
 version: "7"
-# Strictly stick to 'ubi8-minimal:8.0-131' rather than using 'ubi8-minimal:latest'
-# till RH BZ#1725863 is addressed
-from: "ubi8-minimal:8.0-131"
+from: "ubi8-minimal:latest"
 labels:
     - name: "com.redhat.component"
       value: "redhat-sso-cd-rhel8-container"
