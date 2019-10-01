@@ -55,6 +55,8 @@ run:
           - "-c"
           - "standalone.xml"
 osbs:
+      configuration:
+            container_file: container.yaml
       repository:
             name: containers/redhat-sso-7
             branch: jb-sso-cd-rhel8
