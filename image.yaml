@@ -2,7 +2,7 @@ schema_version: 1
 
 name: "redhat-sso-7/sso73"
 description: "Red Hat Single Sign-On 7.3 container image"
-version: "7.3.4.GA"
+version: "7.3.5.GA"
 from: "rhel7:7-released"
 labels:
     - name: "com.redhat.component"
@@ -10,16 +10,16 @@ labels:
     - name: "org.jboss.product"
       value: "sso"
     - name: "org.jboss.product.version"
-      value: "7.3.4.GA"
+      value: "7.3.5.GA"
     - name: "org.jboss.product.sso.version"
-      value: "7.3.4.GA"
+      value: "7.3.5.GA"
 envs:
     - name: "JBOSS_PRODUCT"
       value: "sso"
     - name: "JBOSS_SSO_VERSION"
-      value: "7.3.4.GA"
+      value: "7.3.5.GA"
     - name: "PRODUCT_VERSION"
-      value: "7.3.4.GA"
+      value: "7.3.5.GA"
 
 modules:
       repositories:
@@ -31,7 +31,7 @@ modules:
           - name: jboss-eap-7-image
             git:
                 url: https://github.com/jboss-container-images/jboss-eap-7-image.git
-                ref: EAP_724_CR2
+                ref: EAP_725_CR2
       install:
           - name: jboss.container.openjdk.jdk
             version: '8'
