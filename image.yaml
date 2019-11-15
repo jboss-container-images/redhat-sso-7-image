@@ -41,6 +41,11 @@ modules:
           - name: keycloak.openshift.clients
             version: '1.0'
 
+artifacts:
+      - md5: 752aa177b2c18762807dd04f14fad434
+        name: jboss-eap-7.2.5-patch
+        url: http://$DOWNLOAD_SERVER/devel/candidates/JBEAP/JBEAP-7.2.5.CP-CR2/jboss-eap-7.2.5.CP-CR2-patch.zip
+
 # artifacts:
       # Set by the pipeline. Consists of the server overlay zip,
       # renamed to "keycloak-server-overlay.zip"
