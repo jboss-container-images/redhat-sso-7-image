@@ -27,23 +27,26 @@ modules:
           - name: cct_module
             git:
                 url: https://github.com/jboss-openshift/cct_module.git
-                ref: 0.37.1
+                ref: 0.39.0
           - name: jboss-eap-7-image
             git:
                 url: https://github.com/jboss-container-images/jboss-eap-7-image.git
-                ref: EAP_725_CR2
+                ref: EAP_725_CR2_1
       install:
-          - name: jboss.container.openjdk.jdk
+          - name: sso-jdk
             version: '8'
           - name: eap-7.2-latest
           - name: sso
             version: '1.0'
           - name: keycloak.openshift.clients
             version: '1.0'
+          - name: sso-rm-openjdk
+            version: '1.0'
 
 artifacts:
       - md5: 752aa177b2c18762807dd04f14fad434
         name: jboss-eap-7.2.5-patch
+        target: jboss-eap-7.2.5-patch.zip
         url: http://$DOWNLOAD_SERVER/devel/candidates/JBEAP/JBEAP-7.2.5.CP-CR2/jboss-eap-7.2.5.CP-CR2-patch.zip
 
 # artifacts:
@@ -58,7 +61,15 @@ run:
           - "0.0.0.0"
           - "-c"
           - "standalone.xml"
+packages:
+    content_sets_file: content_sets.yml
+
 osbs:
-      repository:
-            name: containers/redhat-sso-7
-            branch: jb-sso-7.3-rhel-7
+    configuration:
+        container_file: container.yaml
+
+    repository:
+        name: containers/redhat-sso-7
+        branch: jb-sso-7.3-rhel-7
+
+    koji_target: jb-sso-7.3-rhel-7-containers-candidate

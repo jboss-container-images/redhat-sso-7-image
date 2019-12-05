@@ -1,0 +1,12 @@
+compose:
+  inherit: true
+  pulp_repos: true
+  packages:
+  - java-1.8.0-openj9
+  - java-1.8.0-openj9-headless
+  - java-1.8.0-openj9-devel
+  signing_intent: release
+platforms:
+  only:
+  - x86_64
+  - s390x
