@@ -1,7 +1,7 @@
 schema_version: 1
 name: sso-rm-openjdk
 version: '1.0'
-description: Remove OpenJDK 1.8 if OpenJ9 is present
+description: Remove OpenJDK 1.8 on s390x architecture and OpenJ9 1.8 on x86_64 architecture if on each arch a counterpart JDK is installed
 
 execute:
 - script: configure.sh
