@@ -1,5 +1,5 @@
 compose:
-  inherit: true
+  inherit: false
   pulp_repos: true
   packages:
   - java-1.8.0-openj9
