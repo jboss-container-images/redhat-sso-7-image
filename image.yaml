@@ -3,7 +3,7 @@ schema_version: 1
 name: "redhat-sso-7/sso73"
 description: "Red Hat Single Sign-On 7.3 container image"
 version: "7.3.6.GA"
-from: "rhel7:7-released"
+from: "rhel7/rhel"
 labels:
     - name: "com.redhat.component"
       value: "redhat-sso-7-sso73-container"
