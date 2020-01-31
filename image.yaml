@@ -33,6 +33,8 @@ modules:
                 url: https://github.com/jboss-container-images/jboss-eap-7-image.git
                 ref: EAP_726_CR1
       install:
+          - name: base.image.security.errata.update
+            version: '1.0'
           - name: sso-jdk
             version: '8'
           - name: eap-7.2-latest
