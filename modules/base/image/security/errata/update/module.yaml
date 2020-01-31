@@ -1,0 +1,6 @@
+schema_version: 1
+name: base.image.security.errata.update
+version: '1.0'
+description: Perform a minimal (only install the packages that have a security errata) security update of the underlying base image
+execute:
+- script: perform.sh
