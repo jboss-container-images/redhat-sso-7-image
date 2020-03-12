@@ -2,7 +2,7 @@ schema_version: 1
 
 name: "redhat-sso-7/sso73"
 description: "Red Hat Single Sign-On 7.3 container image"
-version: "7.3.6.GA"
+version: "7.3.7.GA"
 from: "rhel7:7-released"
 labels:
     - name: "com.redhat.component"
@@ -10,16 +10,16 @@ labels:
     - name: "org.jboss.product"
       value: "sso"
     - name: "org.jboss.product.version"
-      value: "7.3.6.GA"
+      value: "7.3.7.GA"
     - name: "org.jboss.product.sso.version"
-      value: "7.3.6.GA"
+      value: "7.3.7.GA"
 envs:
     - name: "JBOSS_PRODUCT"
       value: "sso"
     - name: "JBOSS_SSO_VERSION"
-      value: "7.3.6.GA"
+      value: "7.3.7.GA"
     - name: "PRODUCT_VERSION"
-      value: "7.3.6.GA"
+      value: "7.3.7.GA"
 
 modules:
       repositories:
@@ -31,7 +31,7 @@ modules:
           - name: jboss-eap-7-image
             git:
                 url: https://github.com/jboss-container-images/jboss-eap-7-image.git
-                ref: EAP_726_CR1
+                ref: EAP_727_1
       install:
           - name: base.image.security.errata.update
             version: '1.0'
@@ -46,10 +46,14 @@ modules:
             version: '1.0'
 
 artifacts:
-      - md5: d407ad9f1e605f2a4cec16ffbea7b3ce
-        name: jboss-eap-7.2.6-patch
-        target: jboss-eap-7.2.6-patch.zip
-        url: http://$DOWNLOAD_SERVER/devel/candidates/JBEAP/JBEAP-7.2.6.CP-CR1/jboss-eap-7.2.6.CP-CR1-patch.zip
+      - md5: 34a8787d5f5cdf54d5c1477ab1bdf47b
+        name: jboss-eap-7.2.7-patch
+        target: jboss-eap-7.2.7-patch.zip
+        url: http://$DOWNLOAD_SERVER/devel/candidates/JBEAP/JBEAP-7.2.7.CP-CR3/jboss-eap-7.2.7.CP-CR3-patch.zip
+      - md5: c8ecfa7a0c68c3c21a3333b1e5a9c343
+        name: jbeap-18811
+        target: jbeap-18811.zip
+        url: http://$DOWNLOAD_SERVER/devel/candidates/JBSSO/JBSSO-7.3.7.CR1/jbeap-18811.zip
 
 # artifacts:
       # Set by the pipeline. Consists of the server overlay zip,
