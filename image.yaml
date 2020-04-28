@@ -31,7 +31,7 @@ modules:
           - name: jboss-eap-7-image
             git:
                 url: https://github.com/jboss-container-images/jboss-eap-7-image.git
-                ref: EAP_728_CR1
+                ref: EAP_728_CR2
       install:
           - name: base.image.security.errata.update
             version: '1.0'
@@ -46,10 +46,10 @@ modules:
             version: '1.0'
 
 artifacts:
-      - md5: 1810475433681fb32f96dfd5089b5814
-        name: jboss-eap-7.2.8.CP-CR1-patch
-        target: jboss-eap-7.2.8.CP-CR1-patch.zip
-        url: http://$DOWNLOAD_SERVER/devel/candidates/jboss/eap/JBEAP-7.2.8.CP-CR1/jboss-eap-7.2.8.CP-CR1-patch.zip
+      - md5: 1c7dc0a96928afb8d6ff1e456ae57de5
+        name: jboss-eap-7.2.8.CP-CR2-patch
+        target: jboss-eap-7.2.8.CP-CR2-patch.zip
+        url: http://$DOWNLOAD_SERVER/devel/candidates/jboss/eap/JBEAP-7.2.8.CP-CR2/jboss-eap-7.2.8.CP-CR2-patch.zip
 
 # artifacts:
       # Set by the pipeline. Consists of the server overlay zip,
